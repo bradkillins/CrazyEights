@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAB46397-5792-43A7-B939-95E07EA9A1B6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CrazyEights</RootNamespace>
+    <AssemblyName>CrazyEights</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Transitions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\dot-net-transitions.1.2.1.0\lib\net40-full\Transitions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Card.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\ColorsAndFonts.cs" />
+    <Compile Include="Classes\Deck.cs" />
+    <Compile Include="UserControls\FlatRoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Gameboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gameboard.Designer.cs">
+      <DependentUpon>Gameboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Friends.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Friends.Designer.cs">
+      <DependentUpon>Friends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HamburgerMenuButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HamburgerMenuButton.Designer.cs">
+      <DependentUpon>HamburgerMenuButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HighScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HighScore.Designer.cs">
+      <DependentUpon>HighScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Statistics.Designer.cs">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Utilities.cs" />
+    <EmbeddedResource Include="Forms\Gameboard.resx">
+      <DependentUpon>Gameboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Friends.resx">
+      <DependentUpon>Friends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HamburgerMenuButton.resx">
+      <DependentUpon>HamburgerMenuButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HighScore.resx">
+      <DependentUpon>HighScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Statistics.resx">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\min-button-transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-button-transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poker-cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poker-cards-big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\2-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\2-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\3-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\4-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\5-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\6-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\7-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\8-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\9-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\10-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\3-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\4-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\5-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\6-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\7-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\8-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\9-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\10-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\2-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\3-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\4-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\5-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\6-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\7-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\8-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\9-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\10-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\1-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\2-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\3-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\4-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\5-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\6-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\7-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\8-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\9-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\10-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\1-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\1-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\1-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\11-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\11-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\11-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\11-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\12-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\12-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\12-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\12-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\13-C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\13-D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\13-H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards\13-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Cards\CardBackBlue.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
