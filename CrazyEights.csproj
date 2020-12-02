@@ -52,8 +52,20 @@
     <Compile Include="Classes\Card.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\ColorsAndFonts.cs" />
-    <Compile Include="Classes\Deck.cs" />
+    <Compile Include="Classes\CardZone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\CardZones.cs" />
+    <Compile Include="Classes\DiscardZone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\DrawZone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\HandZone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GameSetup.cs" />
     <Compile Include="UserControls\FlatRoundButton.cs">
       <SubType>Component</SubType>
     </Compile>

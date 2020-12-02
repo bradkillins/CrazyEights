@@ -13,61 +13,100 @@ namespace CrazyEights
 {
     public partial class Gameboard : Form
     {
-        Deck deck = new Deck();
+        DrawZone drawPile = new DrawZone();
+        DiscardZone discardPile = new DiscardZone();
+        HandZone mainPlayerHand = new HandZone(true);
+        HandZone opponent1Hand = new HandZone(false);
+        HandZone opponent2Hand = new HandZone(false);
+        HandZone opponent3Hand = new HandZone(false);
         public Gameboard(int numOfOpps)
         {
             InitializeComponent();
-            //card_2D.MouseDown += Utilities.MovingControlMouseDown;
-            //card_2D.MouseUp += Utilities.MovingControlMouseUp;
-            //card_2D.MouseUp += CardMouseUp;
-            //card_2D.MouseMove += Utilities.MovingControlMouseMove;
             NumOfOppsText.Text = numOfOpps.ToString();
-            deck.FillStartingDeck();
+            Controls.Add(drawPile);
+            drawPile.SetLocation();
+            Controls.Add(discardPile);
+            discardPile.SetLocation();
+            Controls.Add(mainPlayerHand);
+            mainPlayerHand.SetLocation();
+            //if (numOfOpps == 1)
+            //    Controls.Add(opponent1Hand);
+            //if (numOfOpps == 2)
+            //{
+            //    Controls.Add(opponent1Hand);
+            //    Controls.Add(opponent2Hand);
+            //}
+            //if (numOfOpps == 3)
+            //{
+            //    Controls.Add(opponent1Hand);
+            //    Controls.Add(opponent2Hand);
+            //    Controls.Add(opponent3Hand);
+            //}
+
+            CardZones.Zones.Add(drawPile);
+            CardZones.Zones.Add(discardPile);
+            CardZones.Zones.Add(mainPlayerHand);
         }
 
         private void btnEndGame_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         private void CardMouseUp(object sender, MouseEventArgs e)
         {
-            Control card = (Control)sender;
-            Transition t = new Transition(new TransitionType_EaseInEaseOut(100));
+            Card card = (Card)sender;
 
-            if (TestPile.Bounds.Contains(card.Bounds))
+            if (discardPile.Bounds.Contains(card.Bounds))
             {
-                lblTest.Text = "Yes!";
-                t.add(card, "Left", TestPile.Location.X + 10);
-                t.add(card, "Top", TestPile.Location.Y + 10);
-                t.run();
+                if(card.zoneBeforeMove == mainPlayerHand && discardPile.IsValidDiscard(card))
+                {
+                    //TODO - complete IsValidDiscard method
+                    //then set discardPile suit and value appropriatly
+                    //we'll also need to handel crazy 8s!
+                    
+                    mainPlayerHand.TransferCard(discardPile, card);
+                    discardPile.AnimatePlacingCardInZone(card);
+                    mainPlayerHand.AnimatePlacingCardInZone(null);
+                }
+                else
+                {
+                    card.FailedMove();
+                }                
+            }
+            else if (mainPlayerHand.Bounds.Contains(card.Bounds))
+            {
+                if (card.zoneBeforeMove == drawPile)
+                {
+                    card.ShowFace();
+                    drawPile.TransferCard(mainPlayerHand, card);
+                    mainPlayerHand.AnimatePlacingCardInZone(card);
+                }
+                else
+                    card.FailedMove();
             }
             else
             {
-                lblTest.Text = "No!";
-                t.add(card, "Left", TestHand.Location.X + 10);
-                t.add(card, "Top", TestHand.Location.Y + 10);
-                t.run();
+                card.FailedMove();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Gameboard_Load(object sender, EventArgs e)
         {
-            Random r = new Random();
-            if(deck.Cards.Count <= 0)
+            int cardCount = 0;
+            foreach (Card card in drawPile.Cards)
             {
-                //shuffle discard back into deck
+                card.MouseUp += CardMouseUp;
+                card.ShowBack();
+                Controls.Add(card);
+                if (cardCount == 0)
+                    //display first card slightly to the left
+                    card.Location = new Point(drawPile.Left + (GameSetup.cardZoneMargin/3), drawPile.Top + (GameSetup.cardZoneMargin / 2));
+                else
+                    card.Location = new Point(drawPile.Left + (GameSetup.cardZoneMargin / 2), drawPile.Top + (GameSetup.cardZoneMargin / 2));
+                card.BringToFront();
+                cardCount++;
             }
-            Card card = deck.Cards[r.Next(0, deck.Cards.Count)];
-            deck.Cards.Remove(card);
-            Controls.Add(card);
-            card.Location = new Point(TestHand.Location.X + 10, TestHand.Location.Y + 10);
-            card.BringToFront();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //card.FlipCard();
         }
     }
 }

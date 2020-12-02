@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Transitions;
 
 namespace CrazyEights
 {
@@ -17,8 +18,12 @@ namespace CrazyEights
         {
             if (e.Button == MouseButtons.Left)
             {
-                if(((Control)sender).GetType() == typeof(PictureBox))
+                if (((Control)sender).GetType() == typeof(Card))
+                {
                     ((Control)sender).BringToFront();
+                    ((Card)sender).zoneBeforeMove = CardZones.GetCurrentZone((Card)sender);
+                    ((Card)sender).locationBeforeMove = ((Card)sender).Location;
+                }
                 ((Control)sender).Cursor = Cursors.SizeAll;
                 mouseDownPoint = e.Location;
                 moving = true;
@@ -46,6 +51,14 @@ namespace CrazyEights
                 control.Left = e.X + control.Left - mouseDownPoint.X;
                 control.Top = e.Y + control.Top - mouseDownPoint.Y;
             }
+        }
+
+        public static void AnimateCard(Card card, Point endPosition, int offsetX, int offsetY, int animationLength = 100)
+        {
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(animationLength));
+            t.add(card, "Left", endPosition.X + offsetX);
+            t.add(card, "Top", endPosition.Y + offsetY);
+            t.run();
         }
     }
 }

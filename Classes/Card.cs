@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
+using Transitions;
 
 namespace CrazyEights
 {
-    class Card : PictureBox
+    public class Card : PictureBox
     {
         public int Value { get; }
         public char Suit { get; }
+        public CardZone zoneBeforeMove;
+        public Point locationBeforeMove;
         string imgLocation;
 
         public Card(int value, char suit)
@@ -23,7 +26,7 @@ namespace CrazyEights
                 + $"\\Resources\\Cards\\{value}-{suit}.png";
             imgLocation = ImageLocation;
             SizeMode = PictureBoxSizeMode.StretchImage;
-            Size = new Size(120, 150);
+            Size = GameSetup.cardSize;
             BackgroundImage = CrazyEights.Properties.Resources.CardBackBlue;
             BackgroundImageLayout = ImageLayout.Stretch;
             MouseDown += Utilities.MovingControlMouseDown;
@@ -31,12 +34,27 @@ namespace CrazyEights
             MouseMove += Utilities.MovingControlMouseMove;
         }
 
-        public void FlipCard()
+        public void ShowFace()
         {
-            if (ImageLocation == null)
-                ImageLocation = imgLocation;
-            else
-                ImageLocation = null;
+            ImageLocation = imgLocation;   
+        }
+
+        public void ShowBack()
+        {
+            ImageLocation = null;
+        }
+
+        public void FailedMove()
+        {
+            if(zoneBeforeMove.GetType() == typeof(HandZone)) 
+            {
+                zoneBeforeMove.AnimatePlacingCardInZone(this);
+            }
+            else 
+            {
+                Utilities.AnimateCard(this, locationBeforeMove, 0, 0);
+            }
+            
         }
     }
 }
