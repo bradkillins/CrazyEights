@@ -16,6 +16,8 @@ namespace CrazyEights
         public MainForm()
         {
             InitializeComponent();
+
+            
             MenuPanel.Left = MenuPanel.Width * -1;
             Cmb_NumOfOpp.SelectedIndex = 0;
             Btn_NewGameScreen.Click += NewGameScreen_Click;
@@ -51,19 +53,19 @@ namespace CrazyEights
             {
                 MenuPanel.Left = MenuPanel.Width * -1;
             }
+            
             //close open Forms
-
-            List<Form> formsToDispose = new List<Form>();
+            List<Form> formsToClose = new List<Form>();
             foreach (Control control in Controls)
             {
                 if (control.GetType().BaseType == typeof(Form))
-                    formsToDispose.Add((Form)control);
+                    formsToClose.Add((Form)control);
             }
 
-            while (formsToDispose.Count > 0)
+            while (formsToClose.Count > 0)
             {
-                formsToDispose[0].Dispose();
-                formsToDispose.RemoveAt(0);
+                formsToClose[0].Close();
+                formsToClose.RemoveAt(0);
             }
         }
 

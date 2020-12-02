@@ -29,35 +29,23 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(522, 120);
+            this.label1.Location = new System.Drawing.Point(538, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Friends!!";
             // 
-            // btn_close
-            // 
-            this.btn_close.Location = new System.Drawing.Point(588, 719);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(114, 42);
-            this.btn_close.TabIndex = 3;
-            this.btn_close.Text = "Close";
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
             // Friends
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 810);
-            this.Controls.Add(this.btn_close);
+            this.ClientSize = new System.Drawing.Size(1260, 740);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -72,6 +60,5 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_close;
     }
 }

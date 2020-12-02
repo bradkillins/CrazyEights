@@ -28,21 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_gameboardTitle = new System.Windows.Forms.Label();
             this.btnEndGame = new System.Windows.Forms.Button();
             this.lbl_numOfOpps = new System.Windows.Forms.Label();
             this.NumOfOppsText = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lbl_gameboardTitle
-            // 
-            this.lbl_gameboardTitle.AutoSize = true;
-            this.lbl_gameboardTitle.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_gameboardTitle.Location = new System.Drawing.Point(497, 43);
-            this.lbl_gameboardTitle.Name = "lbl_gameboardTitle";
-            this.lbl_gameboardTitle.Size = new System.Drawing.Size(238, 50);
-            this.lbl_gameboardTitle.TabIndex = 0;
-            this.lbl_gameboardTitle.Text = "Gameboard!";
             // 
             // btnEndGame
             // 
@@ -57,7 +46,7 @@
             // lbl_numOfOpps
             // 
             this.lbl_numOfOpps.AutoSize = true;
-            this.lbl_numOfOpps.Location = new System.Drawing.Point(501, 113);
+            this.lbl_numOfOpps.Location = new System.Drawing.Point(495, 12);
             this.lbl_numOfOpps.Name = "lbl_numOfOpps";
             this.lbl_numOfOpps.Size = new System.Drawing.Size(205, 25);
             this.lbl_numOfOpps.TabIndex = 4;
@@ -66,7 +55,7 @@
             // NumOfOppsText
             // 
             this.NumOfOppsText.AutoSize = true;
-            this.NumOfOppsText.Location = new System.Drawing.Point(712, 113);
+            this.NumOfOppsText.Location = new System.Drawing.Point(706, 12);
             this.NumOfOppsText.Name = "NumOfOppsText";
             this.NumOfOppsText.Size = new System.Drawing.Size(22, 25);
             this.NumOfOppsText.TabIndex = 5;
@@ -77,11 +66,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1260, 810);
+            this.ClientSize = new System.Drawing.Size(1260, 740);
             this.Controls.Add(this.NumOfOppsText);
             this.Controls.Add(this.lbl_numOfOpps);
             this.Controls.Add(this.btnEndGame);
-            this.Controls.Add(this.lbl_gameboardTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -94,8 +82,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbl_gameboardTitle;
         private System.Windows.Forms.Button btnEndGame;
         private System.Windows.Forms.Label lbl_numOfOpps;
         private System.Windows.Forms.Label NumOfOppsText;

@@ -50,7 +50,8 @@ namespace CrazyEights
 
         private void btnEndGame_Click(object sender, EventArgs e)
         {
-            Dispose();
+            CardZones.Zones.Clear();
+            Close();
         }
 
         private void CardMouseUp(object sender, MouseEventArgs e)
