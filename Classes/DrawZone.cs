@@ -61,9 +61,26 @@ namespace CrazyEights
 
         public void SetLocation()
         {
-            int x = (Parent.Width / 2) - Width - GameSetup.cardZoneMargin;
+            int x = (Parent.Width / 2) - Width - GameSetup.zoneMargin;
             int y = (Parent.Height / 2) - (Height / 2);
             Location = new Point(x, y);
+        }
+
+        public void PlaceCardsInPile()
+        {
+            int cardCount = 0;
+            foreach (Card card in Cards)
+            {
+                card.ShowBack();
+                Parent.Controls.Add(card);
+                if (cardCount == 0)
+                    //display first card slightly to the left
+                    card.Location = new Point(Left + (GameSetup.zoneMargin / 3), Top + (GameSetup.zoneMargin / 2));
+                else
+                    card.Location = new Point(Left + (GameSetup.zoneMargin / 2), Top + (GameSetup.zoneMargin / 2));
+                card.BringToFront();
+                cardCount++;
+            }
         }
     }
 }

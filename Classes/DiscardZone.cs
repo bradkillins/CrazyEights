@@ -20,7 +20,7 @@ namespace CrazyEights
 
         public void SetLocation()
         {
-            int x = (Parent.Width / 2) + GameSetup.cardZoneMargin;
+            int x = (Parent.Width / 2) + GameSetup.zoneMargin;
             int y = (Parent.Height / 2) - (Height / 2);
             Location = new Point(x, y);
         }
@@ -29,6 +29,16 @@ namespace CrazyEights
         {
             //TODO detect if either suit matches or value is correct 
             return true;
+        }
+
+        public void ShuffleDiscardToDraw(DrawZone drawPile)
+        {
+            while (Cards.Count > 0)
+            {
+                TransferCard(drawPile, Cards[0]);
+            }
+            drawPile.Shuffle();
+            drawPile.PlaceCardsInPile();
         }
     }
 }

@@ -12,12 +12,10 @@ namespace CrazyEights
     {
         public List<Card> Cards { get; set; }
 
-        public int ZoneMargin { get; set; } = 20;
-
         public CardZone()
         {
             Cards = new List<Card>();
-            MinimumSize = new Size(GameSetup.cardSize.Width + ZoneMargin, GameSetup.cardSize.Height + ZoneMargin);
+            MinimumSize = new Size(GameSetup.cardSize.Width + GameSetup.zoneMargin, GameSetup.cardSize.Height + GameSetup.zoneMargin);
             Size = MinimumSize;
             MaximumSize = MinimumSize;
             TextAlign = ContentAlignment.MiddleCenter;
@@ -36,7 +34,7 @@ namespace CrazyEights
 
         public virtual void AnimatePlacingCardInZone(Card card)
         {
-            Utilities.AnimateCard(card, Location, GameSetup.cardZoneMargin / 2, GameSetup.cardZoneMargin / 2);
+            Utilities.AnimateCard(card, Location, GameSetup.zoneMargin / 2, GameSetup.zoneMargin / 2);
         }
     }
 }

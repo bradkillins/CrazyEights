@@ -10,7 +10,7 @@ namespace CrazyEights
     static public class GameSetup
     {
         public static Size cardSize = new Size(120, 150);
-        public static int cardZoneMargin = 20;
+        public static int zoneMargin = 30;
         public static Color drawZoneColor = Color.LightBlue;
         public static Color discardZoneColor = Color.MistyRose;
         public static Color handZoneColor = Color.LightGreen;

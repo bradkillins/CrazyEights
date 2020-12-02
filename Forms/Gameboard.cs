@@ -70,9 +70,7 @@ namespace CrazyEights
                     mainPlayerHand.AnimatePlacingCardInZone(null);
                 }
                 else
-                {
-                    card.FailedMove();
-                }                
+                    card.FailedMove();              
             }
             else if (mainPlayerHand.Bounds.Contains(card.Bounds))
             {
@@ -81,32 +79,21 @@ namespace CrazyEights
                     card.ShowFace();
                     drawPile.TransferCard(mainPlayerHand, card);
                     mainPlayerHand.AnimatePlacingCardInZone(card);
+                    if (drawPile.Cards.Count == 0)
+                        discardPile.ShuffleDiscardToDraw(drawPile);
                 }
                 else
                     card.FailedMove();
             }
             else
-            {
                 card.FailedMove();
-            }
         }
 
         private void Gameboard_Load(object sender, EventArgs e)
         {
-            int cardCount = 0;
+            drawPile.PlaceCardsInPile();
             foreach (Card card in drawPile.Cards)
-            {
                 card.MouseUp += CardMouseUp;
-                card.ShowBack();
-                Controls.Add(card);
-                if (cardCount == 0)
-                    //display first card slightly to the left
-                    card.Location = new Point(drawPile.Left + (GameSetup.cardZoneMargin/3), drawPile.Top + (GameSetup.cardZoneMargin / 2));
-                else
-                    card.Location = new Point(drawPile.Left + (GameSetup.cardZoneMargin / 2), drawPile.Top + (GameSetup.cardZoneMargin / 2));
-                card.BringToFront();
-                cardCount++;
-            }
         }
     }
 }

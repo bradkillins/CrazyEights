@@ -40,14 +40,14 @@ namespace CrazyEights
         Point DetermineCardPosition(Card card)
         {
             int posInHand = Cards.FindIndex(x => x == card);
-            int xPos = posInHand * card.Width + (GameSetup.cardZoneMargin / 2) + Location.X;
-            int yPos = Location.Y + (GameSetup.cardZoneMargin / 2);
+            int xPos = posInHand * card.Width + (GameSetup.zoneMargin / 2) + Location.X;
+            int yPos = Location.Y + (GameSetup.zoneMargin / 2);
             return new Point(xPos, yPos);
         }
 
         void ResizeAndRepositionZone()
         {
-            MaximumSize = new Size((Cards.Count + 1) * GameSetup.cardSize.Width + ZoneMargin, GameSetup.cardSize.Height + ZoneMargin);
+            MaximumSize = new Size((Cards.Count + 1) * GameSetup.cardSize.Width + GameSetup.zoneMargin, GameSetup.cardSize.Height + GameSetup.zoneMargin);
             MinimumSize = MaximumSize;
             Size = MaximumSize;
             SetLocation();
@@ -58,8 +58,8 @@ namespace CrazyEights
             int count = 0;
             foreach (Card cardInHand in Cards)
             {
-                int xPos = cardInHand.Width * count + (GameSetup.cardZoneMargin / 2) + Location.X;
-                int yPos = Location.Y + (GameSetup.cardZoneMargin / 2);
+                int xPos = cardInHand.Width * count + (GameSetup.zoneMargin / 2) + Location.X;
+                int yPos = Location.Y + (GameSetup.zoneMargin / 2);
                 cardInHand.Location = new Point(xPos, yPos);
                 count++;
             }
@@ -67,7 +67,7 @@ namespace CrazyEights
 
         public void SetLocation()
         {
-            Location = new Point((Parent.Width / 2) - (Width / 2), Parent.Height - Height - (GameSetup.cardZoneMargin * 2));
+            Location = new Point((Parent.Width / 2) - (Width / 2), Parent.Height - Height - (GameSetup.zoneMargin * 2));
         }
     }
 }
