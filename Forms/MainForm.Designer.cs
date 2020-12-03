@@ -46,6 +46,8 @@
             this.Cmb_NumOfOpp = new System.Windows.Forms.ComboBox();
             this.StartGameBtn = new CrazyEights.FlatRoundButton();
             this.StartGamePic = new System.Windows.Forms.PictureBox();
+            this.Txt_PlayerName = new System.Windows.Forms.TextBox();
+            this.lbl_PlayerName = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.StartGamePnl.SuspendLayout();
@@ -237,6 +239,8 @@
             // StartGamePnl
             // 
             this.StartGamePnl.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.StartGamePnl.Controls.Add(this.lbl_PlayerName);
+            this.StartGamePnl.Controls.Add(this.Txt_PlayerName);
             this.StartGamePnl.Controls.Add(this.label1);
             this.StartGamePnl.Controls.Add(this.lbl_NumOfOpponents);
             this.StartGamePnl.Controls.Add(this.Cmb_NumOfOpp);
@@ -251,7 +255,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(504, 29);
+            this.label1.Location = new System.Drawing.Point(502, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 37);
             this.label1.TabIndex = 4;
@@ -260,11 +264,11 @@
             // lbl_NumOfOpponents
             // 
             this.lbl_NumOfOpponents.AutoSize = true;
-            this.lbl_NumOfOpponents.Location = new System.Drawing.Point(468, 118);
+            this.lbl_NumOfOpponents.Location = new System.Drawing.Point(500, 142);
             this.lbl_NumOfOpponents.Name = "lbl_NumOfOpponents";
-            this.lbl_NumOfOpponents.Size = new System.Drawing.Size(205, 25);
+            this.lbl_NumOfOpponents.Size = new System.Drawing.Size(109, 25);
             this.lbl_NumOfOpponents.TabIndex = 3;
-            this.lbl_NumOfOpponents.Text = "Number of Opponents:";
+            this.lbl_NumOfOpponents.Text = "Opponents:";
             // 
             // Cmb_NumOfOpp
             // 
@@ -273,7 +277,7 @@
             "One",
             "Two",
             "Three"});
-            this.Cmb_NumOfOpp.Location = new System.Drawing.Point(679, 115);
+            this.Cmb_NumOfOpp.Location = new System.Drawing.Point(615, 139);
             this.Cmb_NumOfOpp.Name = "Cmb_NumOfOpp";
             this.Cmb_NumOfOpp.Size = new System.Drawing.Size(99, 33);
             this.Cmb_NumOfOpp.TabIndex = 2;
@@ -286,7 +290,7 @@
             this.StartGameBtn.FlatAppearance.BorderSize = 2;
             this.StartGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartGameBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartGameBtn.Location = new System.Drawing.Point(522, 190);
+            this.StartGameBtn.Location = new System.Drawing.Point(520, 201);
             this.StartGameBtn.Name = "StartGameBtn";
             this.StartGameBtn.Size = new System.Drawing.Size(227, 61);
             this.StartGameBtn.TabIndex = 0;
@@ -303,6 +307,23 @@
             this.StartGamePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.StartGamePic.TabIndex = 2;
             this.StartGamePic.TabStop = false;
+            // 
+            // Txt_PlayerName
+            // 
+            this.Txt_PlayerName.Location = new System.Drawing.Point(615, 90);
+            this.Txt_PlayerName.MaxLength = 50;
+            this.Txt_PlayerName.Name = "Txt_PlayerName";
+            this.Txt_PlayerName.Size = new System.Drawing.Size(179, 33);
+            this.Txt_PlayerName.TabIndex = 5;
+            // 
+            // lbl_PlayerName
+            // 
+            this.lbl_PlayerName.AutoSize = true;
+            this.lbl_PlayerName.Location = new System.Drawing.Point(451, 93);
+            this.lbl_PlayerName.Name = "lbl_PlayerName";
+            this.lbl_PlayerName.Size = new System.Drawing.Size(158, 25);
+            this.lbl_PlayerName.TabIndex = 6;
+            this.lbl_PlayerName.Text = "Enter Your Name:";
             // 
             // MainForm
             // 
@@ -350,6 +371,8 @@
         private System.Windows.Forms.Label lbl_NumOfOpponents;
         private HamburgerMenuButton hamburgerMenuButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_PlayerName;
+        private System.Windows.Forms.TextBox Txt_PlayerName;
     }
 }
 

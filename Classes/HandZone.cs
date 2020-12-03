@@ -67,7 +67,7 @@ namespace CrazyEights
 
         public void SetLocation()
         {
-            Location = new Point((Parent.Width / 2) - (Width / 2), Parent.Height - Height - (GameSetup.zoneMargin * 2));
+            Location = new Point((Parent.Width / 2) - (Width / 2), Parent.Height - Height - GameSetup.zoneMargin);
         }
     }
 }
