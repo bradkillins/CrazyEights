@@ -64,14 +64,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(463, 210);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_Okay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmb_Suit);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SuitSelector";
-            this.Text = "SuitSelector";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Suit Selector";
             this.ResumeLayout(false);
             this.PerformLayout();
 
