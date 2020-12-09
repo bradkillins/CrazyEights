@@ -96,5 +96,14 @@ namespace CrazyEights
             foreach (Card card in drawPile.Cards)
                 card.MouseUp += CardMouseUp;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SuitSelector selector = new SuitSelector();
+            if(selector.ShowDialog() == DialogResult.OK)
+            {
+                label1.Text = selector.SelectedSuit.ToString();
+            }
+        }
     }
 }
