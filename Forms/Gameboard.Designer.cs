@@ -31,6 +31,8 @@
             this.btnEndGame = new System.Windows.Forms.Button();
             this.lbl_numOfOpps = new System.Windows.Forms.Label();
             this.NumOfOppsText = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEndGame
@@ -61,12 +63,33 @@
             this.NumOfOppsText.TabIndex = 5;
             this.NumOfOppsText.Text = "0";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(858, 68);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 47);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(869, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
             // Gameboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 740);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.NumOfOppsText);
             this.Controls.Add(this.lbl_numOfOpps);
             this.Controls.Add(this.btnEndGame);
@@ -85,5 +108,7 @@
         private System.Windows.Forms.Button btnEndGame;
         private System.Windows.Forms.Label lbl_numOfOpps;
         private System.Windows.Forms.Label NumOfOppsText;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
