@@ -31,6 +31,8 @@
             this.btnEndGame = new System.Windows.Forms.Button();
             this.lbl_numOfOpps = new System.Windows.Forms.Label();
             this.NumOfOppsText = new System.Windows.Forms.Label();
+            this.suitDropDown = new System.Windows.Forms.ComboBox();
+            this.lblTrumpSuit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEndGame
@@ -61,12 +63,32 @@
             this.NumOfOppsText.TabIndex = 5;
             this.NumOfOppsText.Text = "0";
             // 
+            // suitDropDown
+            // 
+            this.suitDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.suitDropDown.FormattingEnabled = true;
+            this.suitDropDown.Location = new System.Drawing.Point(271, 4);
+            this.suitDropDown.Name = "suitDropDown";
+            this.suitDropDown.Size = new System.Drawing.Size(228, 33);
+            this.suitDropDown.TabIndex = 6;
+            // 
+            // lblTrumpSuit
+            // 
+            this.lblTrumpSuit.AutoSize = true;
+            this.lblTrumpSuit.Location = new System.Drawing.Point(31, 12);
+            this.lblTrumpSuit.Name = "lblTrumpSuit";
+            this.lblTrumpSuit.Size = new System.Drawing.Size(25, 25);
+            this.lblTrumpSuit.TabIndex = 7;
+            this.lblTrumpSuit.Text = "H";
+            // 
             // Gameboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 740);
+            this.Controls.Add(this.lblTrumpSuit);
+            this.Controls.Add(this.suitDropDown);
             this.Controls.Add(this.NumOfOppsText);
             this.Controls.Add(this.lbl_numOfOpps);
             this.Controls.Add(this.btnEndGame);
@@ -85,5 +107,7 @@
         private System.Windows.Forms.Button btnEndGame;
         private System.Windows.Forms.Label lbl_numOfOpps;
         private System.Windows.Forms.Label NumOfOppsText;
+        private System.Windows.Forms.ComboBox suitDropDown;
+        private System.Windows.Forms.Label lblTrumpSuit;
     }
 }

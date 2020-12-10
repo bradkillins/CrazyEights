@@ -53,7 +53,7 @@ namespace CrazyEights
             SetLocation();
         }
 
-        void RepositionCardsInHand()
+        public void RepositionCardsInHand()
         {
             int count = 0;
             foreach (Card cardInHand in Cards)
@@ -67,7 +67,9 @@ namespace CrazyEights
 
         public void SetLocation()
         {
+            if (IsMainPlayer)
             Location = new Point((Parent.Width / 2) - (Width / 2), Parent.Height - Height - GameSetup.zoneMargin);
+            else Location = new Point((Parent.Width / 2) - (Width / 2), GameSetup.zoneMargin);
         }
     }
 }
