@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using Transitions;
+using System.Media;
 
 namespace CrazyEights
 {
@@ -54,7 +55,10 @@ namespace CrazyEights
             {
                 Utilities.AnimateCard(this, locationBeforeMove, 0, 0);
             }
-            
+
+            SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\error3.wav");
+            player.Play();
+
         }
     }
 }

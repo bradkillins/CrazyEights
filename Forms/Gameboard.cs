@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Transitions;
+using System.Media;
 
 namespace CrazyEights
 {
@@ -333,7 +334,9 @@ namespace CrazyEights
         {
             if (players[playerTurn].Cards.Count == 0)
             {
-                MessageBox.Show($"Player {playerTurn + 1} won!");
+                SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\winner2.wav");
+                player.Play();
+                MessageBox.Show($"Player {playerTurn + 1} won!");   
             }
             CardZones.Zones.Clear();
             Close();

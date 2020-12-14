@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace CrazyEights
 {
@@ -30,6 +31,9 @@ namespace CrazyEights
         {
             Cards.Remove(card);
             transferToZone.Cards.Add(card);
+
+            SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\deal_real.wav");
+            player.Play();
         }
 
         public virtual void AnimatePlacingCardInZone(Card card)
