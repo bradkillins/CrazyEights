@@ -34,7 +34,7 @@ namespace CrazyEights
 
         public virtual void AnimatePlacingCardInZone(Card card)
         {
-            Utilities.AnimateCard(card, Location, GameSetup.zoneMargin / 2, GameSetup.zoneMargin / 2);
+            Utilities.AnimateCard(card, Location, GameSetup.zoneMargin / 2, GameSetup.zoneMargin / 2, 500);
         }
     }
 }

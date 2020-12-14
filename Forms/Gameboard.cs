@@ -82,8 +82,8 @@ namespace CrazyEights
 
         private void btnEndGame_Click(object sender, EventArgs e)
         {
-            CardZones.Zones.Clear();
-            Close();
+            EndGame();
+            
         }
 
         private void CardMouseUp(object sender, MouseEventArgs e)
@@ -92,7 +92,7 @@ namespace CrazyEights
 
             if (discardPile.Bounds.Contains(card.Bounds))
             {
-                if(card.zoneBeforeMove == mainPlayerHand && discardPile.IsValidDiscard(card))
+                if(card.zoneBeforeMove == mainPlayerHand && discardPile.IsValidDiscard(card, discardPile.Cards[discardPile.Cards.Count - 1], lblTrumpSuit.Text))
                 {
                     //TODO - complete IsValidDiscard method
                     //then set discardPile suit and value appropriatly
@@ -101,18 +101,35 @@ namespace CrazyEights
                     mainPlayerHand.TransferCard(discardPile, card);
                     discardPile.AnimatePlacingCardInZone(card);
                     mainPlayerHand.AnimatePlacingCardInZone(null);
+                    if (mainPlayerHand.Cards.Count == 0)
+                    {
+                        EndGame();
+                        
+                    }
+                    else
+                    {
+                        setSuit(card.Suit, card.Value);
 
-                    setSuit(card.Suit, card.Value);
-
-                    playerTurn++;
-                    WhoseTurn();
+                        playerTurn++;
+                        WhoseTurn();
+                    }
+                    
                 }
                 else
                     card.FailedMove();              
             }
             else if (mainPlayerHand.Bounds.Contains(card.Bounds))
             {
-                if (card.zoneBeforeMove == drawPile)
+                //test if player has a playable card before dropping card from drawPile into player's hand
+                bool isValid = true;
+                foreach (Card playerCard in mainPlayerHand.Cards)
+                {
+                    if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
+                }
+
+                //if Draw play is valid, drop card into player's hand and then increase pickup count. 
+                //if pickup count is at max of 3, then change turns.
+                if (card.zoneBeforeMove == drawPile && isValid)
                 {
                     card.ShowFace();
                     drawPile.TransferCard(mainPlayerHand, card);
@@ -120,7 +137,21 @@ namespace CrazyEights
                     if (drawPile.Cards.Count == 0)
                         discardPile.ShuffleDiscardToDraw(drawPile);
 
-                    setSuit(card.Suit, card.Value);
+                    isValid = false;
+                    foreach (Card playerCard in mainPlayerHand.Cards)
+                    {
+                        if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = true;
+                    }
+
+                    //if pickup count is 3 and the pickup card is not valid, change turn.
+                    pickupCount++;
+                    if (pickupCount >= 3 && !isValid)
+                    {
+                        playerTurn++;
+                        pickupCount = 0;
+                        WhoseTurn();
+                    }
+                    
 
                 }
                 else
@@ -151,6 +182,7 @@ namespace CrazyEights
             discardPile.AnimatePlacingCardInZone(discardTop);
             discardPile.Cards[0].BringToFront();
             trumpSuit = discardPile.Cards[0].Suit;
+            lblTrumpSuit.Text = trumpSuit.ToString();
 
 
             playerTurn = 0;
@@ -168,7 +200,7 @@ namespace CrazyEights
         private void WhoseTurn()
         {
             trumpSuit = suitDropDown.SelectedItem.ToString().ToCharArray()[0];
-
+            bool isValid = false;
             //cycle through list of players;
             if (playerTurn == 1)
             {
@@ -188,6 +220,12 @@ namespace CrazyEights
                         trumpSuit = discardPile.Cards[discardPile.Cards.Count - 1].Suit;
                         setSuit(trumpSuit, discardPile.Cards[discardPile.Cards.Count - 1].Value);
                         cardPlayed = true;
+
+                        if (players[playerTurn].Cards.Count == 0)
+                        {
+                            EndGame();
+                        }
+
                         if (move.Value == 8)
                         {
                             trumpSuit = ai.ChooseSuit(players[playerTurn].Cards);
@@ -199,12 +237,17 @@ namespace CrazyEights
                         Card drawTop = drawPile.Cards[0];
                         drawTop.ShowFace();
                         drawPile.TransferCard(players[playerTurn], drawTop);
-                        players[playerTurn].AnimatePlacingCardInZone(drawTop);
+                        players[playerTurn].AnimatePlacingCardInZone  (drawTop);
                         players[playerTurn].AnimatePlacingCardInZone(null);
                         pickupCount++;
+                        
+                        foreach (Card playerCard in players[playerTurn].Cards)
+                        {
+                            if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = true;
+                        }
                     }
-                } while (cardPlayed == false && pickupCount < 3);
-                
+                } while (cardPlayed == false && (pickupCount < 3 || isValid == true));
+
 
                 //Console.WriteLine(move);
                 playerTurn++;
@@ -284,6 +327,16 @@ namespace CrazyEights
                 suitDropDown.Enabled = false;
             }
 
+        }
+
+        private void EndGame()
+        {
+            if (players[playerTurn].Cards.Count == 0)
+            {
+                MessageBox.Show($"Player {playerTurn + 1} won!");
+            }
+            CardZones.Zones.Clear();
+            Close();
         }
     }
 }

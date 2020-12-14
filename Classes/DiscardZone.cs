@@ -25,10 +25,12 @@ namespace CrazyEights
             Location = new Point(x, y);
         }
 
-        public bool IsValidDiscard(Card card)
+        public bool IsValidDiscard(Card card, Card discardPile, string playableSuit)
         {
-            //TODO detect if either suit matches or value is correct 
-            return true;
+            bool isValid = false;
+            if (card.Value == 8 || card.Value == discardPile.Value || card.Suit.ToString() == playableSuit) isValid = true;
+            
+            return isValid;
         }
 
         public void ShuffleDiscardToDraw(DrawZone drawPile)

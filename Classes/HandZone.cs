@@ -34,7 +34,7 @@ namespace CrazyEights
             ResizeAndRepositionZone();
             RepositionCardsInHand();
             if (card != null)
-                Utilities.AnimateCard(card, DetermineCardPosition(card), 0, 0);
+                Utilities.AnimateCard(card, DetermineCardPosition(card), 0, 0, 500);
         }
 
         Point DetermineCardPosition(Card card)
