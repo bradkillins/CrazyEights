@@ -24,6 +24,7 @@ namespace CrazyEights
 
         char trumpSuit;
         int pickupCount = 0;
+        int moveCount = 0;
 
         DrawZone drawPile = new DrawZone();
         DiscardZone discardPile = new DiscardZone();
@@ -268,6 +269,7 @@ namespace CrazyEights
 
                 //Console.WriteLine(move);
                 playerTurn++;
+                moveCount++;
                 pickupCount = 0;
                 if (playerTurn >= players.Count)
                 {
@@ -358,6 +360,9 @@ namespace CrazyEights
                 ////Parameters are as follows
                 ////int playerWon, int playerLost, int leastNumberOfCardsPlayed, int mostNumberOfCardsPlayed)
                 //CrazyEights.Classes.Stats.UdpateStats(0, 1, 10, 20);
+
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                //We want to pass moveCount and a bool playerWon to the UpdateStats method;
 
                 ////This will return ',' seperated string like 1,0,10,20,
                 //MessageBox.Show(CrazyEights.Classes.Stats.GetStats());
