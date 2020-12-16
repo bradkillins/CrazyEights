@@ -360,7 +360,12 @@ namespace CrazyEights
                 ////Parameters are as follows
                 ////int playerWon, int playerLost, int leastNumberOfCardsPlayed, int mostNumberOfCardsPlayed)
                 //CrazyEights.Classes.Stats.UdpateStats(0, 1, 10, 20);
-
+                bool playerWon = false;
+                if (playerTurn == 0)
+                {
+                    playerWon = true;
+                }
+                CrazyEights.Classes.Stats.UdpateStats(playerWon, moveCount);
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 //We want to pass moveCount and a bool playerWon to the UpdateStats method;
 

@@ -10,14 +10,34 @@ namespace CrazyEights.Classes
     static class Stats
     {
         static string path = "stats.txt";
-        
-        public static void UdpateStats(int playerWon, int playerLost, int leastNumberOfCardsPlayed, int mostNumberOfCardsPlayed)
+        static int playerWon = 1;
+        static int playerLost = 1;
+        static int leastNumberOfCardsPlayed = 0;
+        static int mostNumberOfCardsPlayed = 0;
+
+
+        public static void UdpateStats(bool playerWonBool, int moveCount)
         {
+
+
             if (!File.Exists(path))
             {
                 // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path))
                 {
+                    if (playerWonBool)
+                    {
+                        playerWon = 1;
+                        playerLost = 0;
+                    }
+                    else
+                    {
+                        playerWon = 0;
+                        playerLost = 1;
+                    }
+
+                    leastNumberOfCardsPlayed = mostNumberOfCardsPlayed = moveCount;
+
                     sw.WriteLine(playerWon);
                     sw.WriteLine(playerLost);
                     sw.WriteLine(leastNumberOfCardsPlayed);
@@ -26,6 +46,8 @@ namespace CrazyEights.Classes
                 }
                 return;
             }
+
+
 
             string output = "";
             // Open the file to read from.
@@ -47,17 +69,31 @@ namespace CrazyEights.Classes
             int mostNumberOfCardsPlayed_old = int.Parse(oldData[3]);
 
             //Update the records accordingly
-            playerWon += playerWon_old;
-            playerLost += playerLost_old;
+            if (playerWonBool)
+            {
+                playerWon += playerWon_old;
+            }
+            else
+            {
+                playerLost += playerLost_old;
+            }
 
-            if (leastNumberOfCardsPlayed_old < leastNumberOfCardsPlayed)
+            if (leastNumberOfCardsPlayed_old < moveCount)
             {
                 leastNumberOfCardsPlayed = leastNumberOfCardsPlayed_old;
             }
+            else
+            {
+                leastNumberOfCardsPlayed = moveCount;
+            }
 
-            if (mostNumberOfCardsPlayed_old > mostNumberOfCardsPlayed)
+            if (mostNumberOfCardsPlayed_old > moveCount)
             {
                 mostNumberOfCardsPlayed = mostNumberOfCardsPlayed_old;
+            }
+            else
+            {
+                mostNumberOfCardsPlayed = moveCount;
             }
 
 
