@@ -195,7 +195,9 @@ namespace CrazyEights
             discardPile.AnimatePlacingCardInZone(discardTop);
             discardPile.Cards[0].BringToFront();
             trumpSuit = discardPile.Cards[0].Suit;
-            lblTrumpSuit.Text = trumpSuit.ToString();
+            SetSuitLabel();
+
+            //lblTrumpSuit.Text = trumpSuit.ToString();
 
 
             playerTurn = 0;
@@ -212,7 +214,7 @@ namespace CrazyEights
 
         private void WhoseTurn()
         {
-            trumpSuit = suitDropDown.SelectedItem.ToString().ToCharArray()[0];
+            //trumpSuit = suitDropDown.SelectedItem.ToString().ToCharArray()[0];
             bool isValid = false;
             //cycle through list of players;
             if (playerTurn == 1)
@@ -308,44 +310,81 @@ namespace CrazyEights
 
         private void setSuit(char suit, int value)
         {
-
-
-            changeSuit:;
-
-            switch (suit)
-            {
-                case 'D':
-                    suitDropDown.SelectedIndex = 0;
-                    break;
-                case 'S':
-                    suitDropDown.SelectedIndex = 1;
-                    break;
-                case 'H':
-                    suitDropDown.SelectedIndex = 2;
-                    break;
-                case 'C':
-                    suitDropDown.SelectedIndex = 3;
-                    break;
-            }
-
-            lblTrumpSuit.Text = suit.ToString();
+            trumpSuit = suit;
 
             if (value == 8 && playerTurn == 0)
             {
-                //suitDropDown.Enabled = true;
-                Forms.SuitSelector suitSelector = new Forms.SuitSelector();
-                suitSelector.ShowDialog();
-                //MessageBox.Show("Hi");
-                MessageBox.Show(suitSelector.selectedSuit.ToString());
-                suit = suitSelector.selectedSuit;
-                value = 0;
-                goto changeSuit;
-            }
-            else
-            {
-                suitDropDown.Enabled = false;
+                SuitSelector selector = new SuitSelector();
+                if (selector.ShowDialog() == DialogResult.OK)
+                {
+                    trumpSuit = selector.SelectedSuit;
+                }
             }
 
+            SetSuitLabel();
+
+
+
+
+            //changeSuit:;
+
+            //switch (suit)
+            //{
+            //    case 'D':
+            //        suitDropDown.SelectedIndex = 0;
+            //        break;
+            //    case 'S':
+            //        suitDropDown.SelectedIndex = 1;
+            //        break;
+            //    case 'H':
+            //        suitDropDown.SelectedIndex = 2;
+            //        break;
+            //    case 'C':
+            //        suitDropDown.SelectedIndex = 3;
+            //        break;
+            //}
+
+            //lblTrumpSuit.Text = suit.ToString();
+
+            //if (value == 8 && playerTurn == 0)
+            //{
+            //    //suitDropDown.Enabled = true;
+            //    SuitSelector suitSelector = new SuitSelector();
+            //    suitSelector.ShowDialog();
+            //    //MessageBox.Show("Hi");
+            //    MessageBox.Show(suitSelector.selectedSuit.ToString());
+            //    suit = suitSelector.selectedSuit;
+            //    value = 0;
+            //    goto changeSuit;
+            //}
+            //else
+            //{
+            //    suitDropDown.Enabled = false;
+            //}
+
+        }
+
+        void SetSuitLabel()
+        {
+            string selectedSuit = "";
+
+            switch (trumpSuit)
+            {
+                case 'D':
+                    selectedSuit = "Diamonds";
+                    break;
+                case 'S':
+                    selectedSuit = "Spades";
+                    break;
+                case 'H':
+                    selectedSuit = "Hearts";
+                    break;
+                case 'C':
+                    selectedSuit = "Clubs";
+                    break;
+            }
+
+            lblTrumpSuit.Text = selectedSuit;
         }
 
         private void EndGame()
