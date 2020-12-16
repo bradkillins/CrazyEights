@@ -99,7 +99,7 @@ namespace CrazyEights
 
             if (discardPile.Bounds.Contains(card.Bounds))
             {
-                if(card.zoneBeforeMove == mainPlayerHand && discardPile.IsValidDiscard(card, discardPile.Cards[discardPile.Cards.Count - 1], lblTrumpSuit.Text))
+                if(card.zoneBeforeMove == mainPlayerHand && discardPile.IsValidDiscard(card, discardPile.Cards[discardPile.Cards.Count - 1], trumpSuit))
                 {
                     //TODO - complete IsValidDiscard method
                     //then set discardPile suit and value appropriatly
