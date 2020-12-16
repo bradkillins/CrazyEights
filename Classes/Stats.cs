@@ -10,8 +10,8 @@ namespace CrazyEights.Classes
     static class Stats
     {
         static string path = "stats.txt";
-        static int playerWon = 1;
-        static int playerLost = 1;
+        static int playerWon = 0;
+        static int playerLost = 0;
         static int leastNumberOfCardsPlayed = 0;
         static int mostNumberOfCardsPlayed = 0;
 
@@ -71,11 +71,11 @@ namespace CrazyEights.Classes
             //Update the records accordingly
             if (playerWonBool)
             {
-                playerWon += playerWon_old;
+                playerWon = playerWon_old + 1;
             }
             else
             {
-                playerLost += playerLost_old;
+                playerLost = playerLost_old + 1;
             }
 
             if (leastNumberOfCardsPlayed_old < moveCount)

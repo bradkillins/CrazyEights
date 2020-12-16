@@ -41,13 +41,13 @@
             this.Btn_Friends = new CrazyEights.FlatRoundButton();
             this.Btn_NewGameScreen = new CrazyEights.FlatRoundButton();
             this.StartGamePnl = new System.Windows.Forms.Panel();
+            this.lbl_PlayerName = new System.Windows.Forms.Label();
+            this.Txt_PlayerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_NumOfOpponents = new System.Windows.Forms.Label();
             this.Cmb_NumOfOpp = new System.Windows.Forms.ComboBox();
             this.StartGameBtn = new CrazyEights.FlatRoundButton();
             this.StartGamePic = new System.Windows.Forms.PictureBox();
-            this.Txt_PlayerName = new System.Windows.Forms.TextBox();
-            this.lbl_PlayerName = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.StartGamePnl.SuspendLayout();
@@ -129,7 +129,7 @@
             this.MenuPanel.Controls.Add(this.Btn_HighScore);
             this.MenuPanel.Controls.Add(this.Btn_Friends);
             this.MenuPanel.Controls.Add(this.Btn_NewGameScreen);
-            this.MenuPanel.Location = new System.Drawing.Point(-300, 60);
+            this.MenuPanel.Location = new System.Drawing.Point(0, 60);
             this.MenuPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(400, 740);
@@ -154,6 +154,7 @@
             this.Btn_Settings.TabIndex = 4;
             this.Btn_Settings.Text = "Settings";
             this.Btn_Settings.UseVisualStyleBackColor = false;
+            this.Btn_Settings.Visible = false;
             this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
             // 
             // Btn_GameStats
@@ -214,6 +215,7 @@
             this.Btn_Friends.TabIndex = 1;
             this.Btn_Friends.Text = "Friends";
             this.Btn_Friends.UseVisualStyleBackColor = false;
+            this.Btn_Friends.Visible = false;
             this.Btn_Friends.Click += new System.EventHandler(this.Btn_Friends_Click);
             // 
             // Btn_NewGameScreen
@@ -249,6 +251,23 @@
             this.StartGamePnl.Name = "StartGamePnl";
             this.StartGamePnl.Size = new System.Drawing.Size(1260, 310);
             this.StartGamePnl.TabIndex = 3;
+            // 
+            // lbl_PlayerName
+            // 
+            this.lbl_PlayerName.AutoSize = true;
+            this.lbl_PlayerName.Location = new System.Drawing.Point(451, 93);
+            this.lbl_PlayerName.Name = "lbl_PlayerName";
+            this.lbl_PlayerName.Size = new System.Drawing.Size(158, 25);
+            this.lbl_PlayerName.TabIndex = 6;
+            this.lbl_PlayerName.Text = "Enter Your Name:";
+            // 
+            // Txt_PlayerName
+            // 
+            this.Txt_PlayerName.Location = new System.Drawing.Point(615, 90);
+            this.Txt_PlayerName.MaxLength = 50;
+            this.Txt_PlayerName.Name = "Txt_PlayerName";
+            this.Txt_PlayerName.Size = new System.Drawing.Size(179, 33);
+            this.Txt_PlayerName.TabIndex = 5;
             // 
             // label1
             // 
@@ -307,23 +326,6 @@
             this.StartGamePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.StartGamePic.TabIndex = 2;
             this.StartGamePic.TabStop = false;
-            // 
-            // Txt_PlayerName
-            // 
-            this.Txt_PlayerName.Location = new System.Drawing.Point(615, 90);
-            this.Txt_PlayerName.MaxLength = 50;
-            this.Txt_PlayerName.Name = "Txt_PlayerName";
-            this.Txt_PlayerName.Size = new System.Drawing.Size(179, 33);
-            this.Txt_PlayerName.TabIndex = 5;
-            // 
-            // lbl_PlayerName
-            // 
-            this.lbl_PlayerName.AutoSize = true;
-            this.lbl_PlayerName.Location = new System.Drawing.Point(451, 93);
-            this.lbl_PlayerName.Name = "lbl_PlayerName";
-            this.lbl_PlayerName.Size = new System.Drawing.Size(158, 25);
-            this.lbl_PlayerName.TabIndex = 6;
-            this.lbl_PlayerName.Text = "Enter Your Name:";
             // 
             // MainForm
             // 
