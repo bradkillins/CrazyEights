@@ -52,7 +52,7 @@
             this.lbl_numOfOpps.AutoSize = true;
             this.lbl_numOfOpps.Location = new System.Drawing.Point(495, 12);
             this.lbl_numOfOpps.Name = "lbl_numOfOpps";
-            this.lbl_numOfOpps.Size = new System.Drawing.Size(263, 32);
+            this.lbl_numOfOpps.Size = new System.Drawing.Size(205, 25);
             this.lbl_numOfOpps.TabIndex = 4;
             this.lbl_numOfOpps.Text = "Number of Opponents:";
             // 
@@ -61,7 +61,7 @@
             this.NumOfOppsText.AutoSize = true;
             this.NumOfOppsText.Location = new System.Drawing.Point(706, 12);
             this.NumOfOppsText.Name = "NumOfOppsText";
-            this.NumOfOppsText.Size = new System.Drawing.Size(28, 32);
+            this.NumOfOppsText.Size = new System.Drawing.Size(22, 25);
             this.NumOfOppsText.TabIndex = 5;
             this.NumOfOppsText.Text = "0";
             // 
@@ -71,7 +71,7 @@
             this.lblTrumpSuit.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrumpSuit.Location = new System.Drawing.Point(31, 12);
             this.lblTrumpSuit.Name = "lblTrumpSuit";
-            this.lblTrumpSuit.Size = new System.Drawing.Size(33, 32);
+            this.lblTrumpSuit.Size = new System.Drawing.Size(27, 25);
             this.lblTrumpSuit.TabIndex = 7;
             this.lblTrumpSuit.Text = "H";
             // 
@@ -83,6 +83,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Shuffle DrawPile";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // suitDropDown
@@ -91,7 +92,7 @@
             this.suitDropDown.FormattingEnabled = true;
             this.suitDropDown.Location = new System.Drawing.Point(271, 4);
             this.suitDropDown.Name = "suitDropDown";
-            this.suitDropDown.Size = new System.Drawing.Size(228, 40);
+            this.suitDropDown.Size = new System.Drawing.Size(228, 33);
             this.suitDropDown.TabIndex = 6;
             this.suitDropDown.Visible = false;
             // 
@@ -101,13 +102,13 @@
             this.lblSuitTitle.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuitTitle.Location = new System.Drawing.Point(37, 113);
             this.lblSuitTitle.Name = "lblSuitTitle";
-            this.lblSuitTitle.Size = new System.Drawing.Size(66, 32);
+            this.lblSuitTitle.Size = new System.Drawing.Size(52, 25);
             this.lblSuitTitle.TabIndex = 9;
             this.lblSuitTitle.Text = "Suit:";
             // 
             // Gameboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 740);

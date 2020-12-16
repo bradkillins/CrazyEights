@@ -32,6 +32,8 @@ namespace CrazyEights
         {
             InitializeComponent();
 
+            
+
             suitDropDown.Items.Clear();
             suitDropDown.Items.Add("D");
             suitDropDown.Items.Add("S");
@@ -143,6 +145,11 @@ namespace CrazyEights
                     if (drawPile.Cards.Count == 0)
                         discardPile.ShuffleDiscardToDraw(drawPile);
 
+                    if (drawPile.Cards.Count <= 0)
+                    {
+                        discardPile.ShuffleDiscardToDraw(drawPile);
+                    }
+
                     isValid = false;
                     foreach (Card playerCard in mainPlayerHand.Cards)
                     {
@@ -245,6 +252,11 @@ namespace CrazyEights
                         players[playerTurn].AnimatePlacingCardInZone  (drawTop);
                         players[playerTurn].AnimatePlacingCardInZone(null);
                         pickupCount++;
+
+                        if (drawPile.Cards.Count <= 0)
+                        {
+                            discardPile.ShuffleDiscardToDraw(drawPile);
+                        }
                         
                         foreach (Card playerCard in players[playerTurn].Cards)
                         {
@@ -340,7 +352,17 @@ namespace CrazyEights
             {
                 SoundPlayer player = new SoundPlayer(Properties.Resources.winner2);
                 player.Play();
-                MessageBox.Show($"Player {playerTurn + 1} won!");   
+                MessageBox.Show($"Player {playerTurn + 1} won!");
+
+                //#region Testing
+                ////Parameters are as follows
+                ////int playerWon, int playerLost, int leastNumberOfCardsPlayed, int mostNumberOfCardsPlayed)
+                //CrazyEights.Classes.Stats.UdpateStats(0, 1, 10, 20);
+
+                ////This will return ',' seperated string like 1,0,10,20,
+                //MessageBox.Show(CrazyEights.Classes.Stats.GetStats());
+                //#endregion
+
             }
             CardZones.Zones.Clear();
             Close();
