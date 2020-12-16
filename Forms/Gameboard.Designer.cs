@@ -33,6 +33,7 @@
             this.NumOfOppsText = new System.Windows.Forms.Label();
             this.suitDropDown = new System.Windows.Forms.ComboBox();
             this.lblTrumpSuit = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEndGame
@@ -81,12 +82,23 @@
             this.lblTrumpSuit.TabIndex = 7;
             this.lblTrumpSuit.Text = "H";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(63, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 35);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Gameboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 740);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTrumpSuit);
             this.Controls.Add(this.suitDropDown);
             this.Controls.Add(this.NumOfOppsText);
@@ -109,5 +121,6 @@
         private System.Windows.Forms.Label NumOfOppsText;
         private System.Windows.Forms.ComboBox suitDropDown;
         private System.Windows.Forms.Label lblTrumpSuit;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -123,10 +123,12 @@ namespace CrazyEights
             {
                 //test if player has a playable card before dropping card from drawPile into player's hand
                 bool isValid = true;
-                foreach (Card playerCard in mainPlayerHand.Cards)
-                {
-                    if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
-                }
+                //*****************************Validation
+
+                //foreach (Card playerCard in mainPlayerHand.Cards)
+                //{
+                //    if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
+                //}
 
                 //if Draw play is valid, drop card into player's hand and then increase pickup count. 
                 //if pickup count is at max of 3, then change turns.
@@ -153,7 +155,6 @@ namespace CrazyEights
                         WhoseTurn();
                     }
                     
-
                 }
                 else
                     card.FailedMove();
@@ -334,12 +335,17 @@ namespace CrazyEights
         {
             if (players[playerTurn].Cards.Count == 0)
             {
-                SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\winner2.wav");
+                SoundPlayer player = new SoundPlayer(Properties.Resources.winner2);
                 player.Play();
                 MessageBox.Show($"Player {playerTurn + 1} won!");   
             }
             CardZones.Zones.Clear();
             Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            discardPile.ShuffleDiscardToDraw(drawPile);
         }
     }
 }

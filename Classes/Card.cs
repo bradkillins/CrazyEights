@@ -56,7 +56,7 @@ namespace CrazyEights
                 Utilities.AnimateCard(this, locationBeforeMove, 0, 0);
             }
 
-            SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\error3.wav");
+            SoundPlayer player = new SoundPlayer(Properties.Resources.error3);
             player.Play();
 
         }

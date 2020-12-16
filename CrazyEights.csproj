@@ -351,6 +351,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Cards\CardBackBlue.png" />
+    <None Include="Resources\Sounds\winner2.wav" />
+    <None Include="Resources\Sounds\winner1.wav" />
+    <None Include="Resources\Sounds\shuffle.wav" />
+    <None Include="Resources\Sounds\error3.wav" />
+    <None Include="Resources\Sounds\error2.wav" />
+    <None Include="Resources\Sounds\error1.wav" />
+    <None Include="Resources\Sounds\deal_synth.wav" />
+    <None Include="Resources\Sounds\deal_real.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,7 +32,7 @@ namespace CrazyEights
             Cards.Remove(card);
             transferToZone.Cards.Add(card);
 
-            SoundPlayer player = new SoundPlayer("C:\\Users\\steve\\OneDrive\\Documents\\BVC\\SODV2101\\Crazy8s_3\\Resources\\Sounds\\deal_real.wav");
+            SoundPlayer player = new SoundPlayer(Properties.Resources.deal_real);
             player.Play();
         }
 
