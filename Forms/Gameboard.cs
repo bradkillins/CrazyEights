@@ -25,16 +25,17 @@ namespace CrazyEights
         char trumpSuit;
         int pickupCount = 0;
         int moveCount = 0;
+        string PlayerName;
 
         DrawZone drawPile = new DrawZone();
         DiscardZone discardPile = new DiscardZone();
         
-        public Gameboard(int numOfOpps)
+        public Gameboard(int numOfOpps, string playerName)
         {
             InitializeComponent();
 
-            
 
+            PlayerName = playerName;
             suitDropDown.Items.Clear();
             suitDropDown.Items.Add("D");
             suitDropDown.Items.Add("S");
@@ -393,7 +394,13 @@ namespace CrazyEights
             {
                 SoundPlayer player = new SoundPlayer(Properties.Resources.winner2);
                 player.Play();
-                MessageBox.Show($"Player {playerTurn + 1} won!");
+
+                string message = "The computer won.\nBetter luck next time!";
+                if (playerTurn == 0)
+                    message = $"Congratulations {PlayerName}!\nYou Won :)";
+
+
+                MessageBox.Show(message);
 
                 //#region Testing
                 ////Parameters are as follows

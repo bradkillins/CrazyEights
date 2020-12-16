@@ -71,7 +71,7 @@ namespace CrazyEights
 
         private void StartGameBtn_Click(object sender, EventArgs e)
         {
-            Gameboard gameboard = new Gameboard(Cmb_NumOfOpp.SelectedIndex + 1);
+            Gameboard gameboard = new Gameboard(Cmb_NumOfOpp.SelectedIndex + 1, Txt_PlayerName.Text);
             SetupNewForm(gameboard);
             MenuPanel.Left = MenuPanel.Width * -1;
         }
