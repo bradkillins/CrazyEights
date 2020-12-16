@@ -35,7 +35,7 @@ namespace CrazyEights
 
         public void ShuffleDiscardToDraw(DrawZone drawPile)
         {
-            while (Cards.Count > 0)
+            while (Cards.Count > 2)
             {
                 TransferCard(drawPile, Cards[0]);
             }

@@ -43,9 +43,13 @@ namespace CrazyEights
             int posInHand = Cards.FindIndex(x => x == card);
             int yPos = Location.Y + (GameSetup.zoneMargin / 2);
             int xPos;
-            if (Cards.Count >= 8)
+            if (Cards.Count >= 8 && Cards.Count <= 17)
             {
                 xPos = posInHand * (card.Width/2) + (GameSetup.zoneMargin / 2) + Location.X;
+            }
+            else if (Cards.Count >= 18)
+            {
+                xPos = posInHand * (card.Width / 3) + (GameSetup.zoneMargin / 2) + Location.X;
             }
             else
             {
@@ -58,9 +62,13 @@ namespace CrazyEights
         void ResizeAndRepositionZone()
         {
             int cardSpaces = Cards.Count + 1;
-            if (Cards.Count >= 8)
+            if (Cards.Count >= 8 && Cards.Count <= 17)
             {
                 MinimumSize = new Size(cardSpaces * (GameSetup.cardSize.Width/2) + GameSetup.zoneMargin, GameSetup.cardSize.Height + GameSetup.zoneMargin);
+            }
+            else if (Cards.Count >= 18)
+            {
+                MinimumSize = new Size((cardSpaces + 1) * (GameSetup.cardSize.Width / 3) + GameSetup.zoneMargin, GameSetup.cardSize.Height + GameSetup.zoneMargin);
             }
             else 
             {

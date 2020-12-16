@@ -53,8 +53,11 @@ namespace CrazyEights
             NumOfOppsText.Text = numOfOpps.ToString();
             Controls.Add(drawPile);
             drawPile.SetLocation();
+            button1.Location = new Point(drawPile.Location.X, drawPile.Location.Y + 170);
             Controls.Add(discardPile);
             discardPile.SetLocation();
+            lblSuitTitle.Location = new Point(discardPile.Location.X, discardPile.Location.Y + 180);
+            lblTrumpSuit.Location = new Point(discardPile.Location.X + 70, discardPile.Location.Y + 180);
             Controls.Add(mainPlayerHand);
             mainPlayerHand.SetLocation();
             if (numOfOpps == 1)
@@ -125,10 +128,10 @@ namespace CrazyEights
                 bool isValid = true;
                 //*****************************Validation
 
-                //foreach (Card playerCard in mainPlayerHand.Cards)
-                //{
-                //    if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
-                //}
+                foreach (Card playerCard in mainPlayerHand.Cards)
+                {
+                    if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
+                }
 
                 //if Draw play is valid, drop card into player's hand and then increase pickup count. 
                 //if pickup count is at max of 3, then change turns.
