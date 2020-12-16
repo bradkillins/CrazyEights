@@ -55,6 +55,7 @@
             this.lbl_numOfOpps.Size = new System.Drawing.Size(205, 25);
             this.lbl_numOfOpps.TabIndex = 4;
             this.lbl_numOfOpps.Text = "Number of Opponents:";
+            this.lbl_numOfOpps.Visible = false;
             // 
             // NumOfOppsText
             // 
@@ -64,6 +65,7 @@
             this.NumOfOppsText.Size = new System.Drawing.Size(22, 25);
             this.NumOfOppsText.TabIndex = 5;
             this.NumOfOppsText.Text = "0";
+            this.NumOfOppsText.Visible = false;
             // 
             // lblTrumpSuit
             // 
