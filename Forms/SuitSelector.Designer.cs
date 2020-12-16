@@ -1,5 +1,4 @@
-﻿
-namespace CrazyEights.Forms
+﻿namespace CrazyEights
 {
     partial class SuitSelector
     {
@@ -29,54 +28,55 @@ namespace CrazyEights.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.cmb_Suit = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSuitSelector = new System.Windows.Forms.ComboBox();
+            this.btn_Okay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnSubmit
+            // cmb_Suit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(3, 99);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(236, 48);
-            this.btnSubmit.TabIndex = 5;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.cmb_Suit.FormattingEnabled = true;
+            this.cmb_Suit.Location = new System.Drawing.Point(197, 56);
+            this.cmb_Suit.Margin = new System.Windows.Forms.Padding(6);
+            this.cmb_Suit.Name = "cmb_Suit";
+            this.cmb_Suit.Size = new System.Drawing.Size(218, 33);
+            this.cmb_Suit.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 2);
+            this.label1.Location = new System.Drawing.Point(50, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Choose Suit";
+            this.label1.Size = new System.Drawing.Size(103, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Select Suit:";
             // 
-            // cmbSuitSelector
+            // btn_Okay
             // 
-            this.cmbSuitSelector.FormattingEnabled = true;
-            this.cmbSuitSelector.Location = new System.Drawing.Point(3, 31);
-            this.cmbSuitSelector.Margin = new System.Windows.Forms.Padding(6);
-            this.cmbSuitSelector.Name = "cmbSuitSelector";
-            this.cmbSuitSelector.Size = new System.Drawing.Size(236, 33);
-            this.cmbSuitSelector.TabIndex = 3;
+            this.btn_Okay.Location = new System.Drawing.Point(324, 134);
+            this.btn_Okay.Name = "btn_Okay";
+            this.btn_Okay.Size = new System.Drawing.Size(91, 45);
+            this.btn_Okay.TabIndex = 2;
+            this.btn_Okay.Text = "Okay";
+            this.btn_Okay.UseVisualStyleBackColor = true;
             // 
             // SuitSelector
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 148);
-            this.Controls.Add(this.btnSubmit);
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(463, 210);
+            this.ControlBox = false;
+            this.Controls.Add(this.btn_Okay);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbSuitSelector);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.cmb_Suit);
+            this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SuitSelector";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SuitSelector";
-            this.Load += new System.EventHandler(this.SuitSelector_Load);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Suit Selector";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,8 +84,8 @@ namespace CrazyEights.Forms
 
         #endregion
 
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ComboBox cmb_Suit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbSuitSelector;
+        private System.Windows.Forms.Button btn_Okay;
     }
 }

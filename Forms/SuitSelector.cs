@@ -8,31 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CrazyEights.Forms
+namespace CrazyEights
 {
     public partial class SuitSelector : Form
     {
-        public char selectedSuit;
         public SuitSelector()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
+            cmb_Suit.SelectedIndexChanged += OnSuitSelect;
+            btn_Okay.Click += OkayClick;
+            AcceptButton = btn_Okay;
+            cmb_Suit.Items.AddRange(new object[] {
+            "Clubs",
+            "Diamonds",
+            "Hearts",
+            "Spades"});
+            cmb_Suit.SelectedIndex = 0;
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        public char SelectedSuit { get; set; }
+
+        private void OkayClick(object sender, EventArgs e)
         {
-            selectedSuit = cmbSuitSelector.SelectedItem.ToString().ToCharArray()[0];
-            this.Dispose();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
-        private void SuitSelector_Load(object sender, EventArgs e)
+        private void OnSuitSelect(object sender, EventArgs e)
         {
-            cmbSuitSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbSuitSelector.Items.Clear();
-            cmbSuitSelector.Items.Add("D");
-            cmbSuitSelector.Items.Add("H");
-            cmbSuitSelector.Items.Add("S");
-            cmbSuitSelector.Items.Add("C");
-            cmbSuitSelector.SelectedIndex = 0;
+            ComboBox box = (ComboBox)sender;
+            switch (box.SelectedIndex)
+            {
+                case 0:
+                    SelectedSuit = 'C';
+                    break;
+                case 1:
+                    SelectedSuit = 'D';
+                    break;
+                case 2:
+                    SelectedSuit = 'H';
+                    break;
+                case 3:
+                    SelectedSuit = 'S';
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
