@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.suitDropDown = new System.Windows.Forms.ComboBox();
             this.lblSuitTitle = new System.Windows.Forms.Label();
+            this.btnHowToPlay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEndGame
@@ -108,12 +109,23 @@
             this.lblSuitTitle.TabIndex = 9;
             this.lblSuitTitle.Text = "Suit:";
             // 
+            // btnHowToPlay
+            // 
+            this.btnHowToPlay.Location = new System.Drawing.Point(1125, 74);
+            this.btnHowToPlay.Name = "btnHowToPlay";
+            this.btnHowToPlay.Size = new System.Drawing.Size(123, 56);
+            this.btnHowToPlay.TabIndex = 10;
+            this.btnHowToPlay.Text = "How to Play";
+            this.btnHowToPlay.UseVisualStyleBackColor = true;
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
+            // 
             // Gameboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 740);
+            this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.lblSuitTitle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTrumpSuit);
@@ -140,5 +152,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox suitDropDown;
         private System.Windows.Forms.Label lblSuitTitle;
+        private System.Windows.Forms.Button btnHowToPlay;
     }
 }

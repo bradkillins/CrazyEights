@@ -34,7 +34,6 @@ namespace CrazyEights
         {
             InitializeComponent();
 
-
             PlayerName = playerName;
             suitDropDown.Items.Clear();
             suitDropDown.Items.Add("D");
@@ -82,16 +81,11 @@ namespace CrazyEights
             CardZones.Zones.Add(discardPile);
             CardZones.Zones.Add(mainPlayerHand);
             CardZones.Zones.Add(opponent1Hand);
-
-            
-
-
         }
 
         private void btnEndGame_Click(object sender, EventArgs e)
         {
             EndGame();
-            
         }
 
         private void CardMouseUp(object sender, MouseEventArgs e)
@@ -130,8 +124,6 @@ namespace CrazyEights
             {
                 //test if player has a playable card before dropping card from drawPile into player's hand
                 bool isValid = true;
-                //*****************************Validation
-
                 foreach (Card playerCard in mainPlayerHand.Cards)
                 {
                     if (playerCard.Value == 8 || playerCard.Value == discardPile.Cards[discardPile.Cards.Count - 1].Value || playerCard.Suit == trumpSuit) isValid = false;
@@ -166,15 +158,12 @@ namespace CrazyEights
                         pickupCount = 0;
                         WhoseTurn();
                     }
-                    
                 }
                 else
                     card.FailedMove();
             }
             else
                 card.FailedMove();
-
-            
         }
 
         private void Gameboard_Load(object sender, EventArgs e)
@@ -198,13 +187,8 @@ namespace CrazyEights
             trumpSuit = discardPile.Cards[0].Suit;
             SetSuitLabel();
 
-            //lblTrumpSuit.Text = trumpSuit.ToString();
-
-
             playerTurn = 0;
             WhoseTurn();
-            
-            
         }
 
         private int RandomPlayerStart()
@@ -215,7 +199,6 @@ namespace CrazyEights
 
         private void WhoseTurn()
         {
-            //trumpSuit = suitDropDown.SelectedItem.ToString().ToCharArray()[0];
             bool isValid = false;
             //cycle through list of players;
             if (playerTurn == 1)
@@ -269,8 +252,6 @@ namespace CrazyEights
                     }
                 } while (cardPlayed == false && (pickupCount < 3 || isValid == true));
 
-
-                //Console.WriteLine(move);
                 playerTurn++;
                 moveCount++;
                 pickupCount = 0;
@@ -279,8 +260,6 @@ namespace CrazyEights
                     playerTurn = 0;
                 }
             }
-            
-            
         }
 
         private void DealCards()
@@ -321,48 +300,7 @@ namespace CrazyEights
                     trumpSuit = selector.SelectedSuit;
                 }
             }
-
             SetSuitLabel();
-
-
-
-
-            //changeSuit:;
-
-            //switch (suit)
-            //{
-            //    case 'D':
-            //        suitDropDown.SelectedIndex = 0;
-            //        break;
-            //    case 'S':
-            //        suitDropDown.SelectedIndex = 1;
-            //        break;
-            //    case 'H':
-            //        suitDropDown.SelectedIndex = 2;
-            //        break;
-            //    case 'C':
-            //        suitDropDown.SelectedIndex = 3;
-            //        break;
-            //}
-
-            //lblTrumpSuit.Text = suit.ToString();
-
-            //if (value == 8 && playerTurn == 0)
-            //{
-            //    //suitDropDown.Enabled = true;
-            //    SuitSelector suitSelector = new SuitSelector();
-            //    suitSelector.ShowDialog();
-            //    //MessageBox.Show("Hi");
-            //    MessageBox.Show(suitSelector.selectedSuit.ToString());
-            //    suit = suitSelector.selectedSuit;
-            //    value = 0;
-            //    goto changeSuit;
-            //}
-            //else
-            //{
-            //    suitDropDown.Enabled = false;
-            //}
-
         }
 
         void SetSuitLabel()
@@ -427,6 +365,15 @@ namespace CrazyEights
         private void button1_Click(object sender, EventArgs e)
         {
             discardPile.ShuffleDiscardToDraw(drawPile);
+        }
+
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+            string message = "The name of the game is to empty all cards from your hand before your opponent does.\n" +
+                "On each turn, a player can match the card in the discard pile by its value or its suit.\n" +
+                "They can also play an 8 which is wild. " +
+                "When an 8 is played, the player can then choose the suit that has to be played next on the discard pile.​";
+            MessageBox.Show(message, "How to Play");
         }
     }
 }
